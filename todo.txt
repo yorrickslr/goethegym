@@ -1,3 +1,9 @@
+- tile scrollbuttons
 - Quicklinks
 - Aktuelles
-- 
+- Footer
+- Sitemap
+- PHP Layout
+- Backend
+- javascript -> css classes
+- reseize handling in js

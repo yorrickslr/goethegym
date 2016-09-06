@@ -6,6 +6,7 @@ var footer;
 // mainpage
 var tiles;
 var tilepos = 0;
+var shown = 0;
 
 function log(string) {
 	//console.log(string);
@@ -36,6 +37,8 @@ function initMain() {
 	});
 	main.style.height = tiles.offsetHeight + tiles.offsetTop + "px"; 
 	main.style.overflow = "hidden";
+	main.style.transitionDuration = ".5s";
+	main.style.left = 0;
 	tiles.style.position = "absolute";
 	tiles.style.top = tiles.offsetTop + "px";
 	tiles.style.left = 0;
@@ -56,12 +59,29 @@ function scrollTiles(count) {
 	tiles.style.left = -tilepos * 395 + "px";
 }
 
+function loadArticle(event) {
+	event.preventDefault();
+	if(shown==1) return;
+	main.style.left = 0.8 * main.offsetWidth + "px";
+	main.style.width = 0.2 * main.offsetWidth + "px";
+	main.style.boxShadow = "0 0 5px gray";
+	main.style.cursor = "pointer";
+	main.addEventListener("click",reset,true);
+	shown = 1;
+}
+
+function reset() {
+	if(shown==0) return;
+	main.removeEventListener("click",reset,true);
+	main.style.left = 0;
+	main.style.width = document.body.clientWidth + "px";
+	main.style.cursor = "auto";
+	setTimeout(function(){
+		shown = 0;
+	}, 500);
+}
+
 function initSub() {
 	initialize();
 	log("initSub()");
-}
-
-function setMain() {
-	log("setMain()");
-	main.style.width = document.body.clientWidth + "px";
 }

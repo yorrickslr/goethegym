@@ -30,7 +30,6 @@ body {
 	margin: 0;
 	color: #555;
 	font-family: Calibri, Arial;
-	overflow-x: hidden;
 	overflow-y: scroll;
 }
 
