@@ -1,9 +1,10 @@
-- tile scrollbuttons
-- Quicklinks
-- Aktuelles
+- tile scrollbuttons: transparent auf objekt
+- Quicklinks: im Login-Popup
+- Aktuelles: Ausrufezeichen in News
 - Footer
 - Sitemap
 - PHP Layout
 - Backend
 - javascript -> css classes
 - reseize handling in js
+- mobile noch auf alte website verlinken
