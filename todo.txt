@@ -1,10 +1,12 @@
 - tile scrollbuttons: transparent auf objekt
 - Quicklinks: im Login-Popup
 - Aktuelles: Ausrufezeichen in News
-- Footer
+- Footer (content und absolute bottom)
 - Sitemap
 - PHP Layout
 - Backend
 - javascript -> css classes
 - reseize handling in js
 - mobile noch auf alte website verlinken
+- Anpassung height article an main vise versa
+- Schriftgröße Artikel größer als Vorschau?

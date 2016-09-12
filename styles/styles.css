@@ -106,6 +106,7 @@ footer {
 	min-height: 100%; /*fallback*/
 	min-height: calc(100% - 300px);
 	overflow-x: hidden;
+	background-color: #fff;
 }
 
 .mainpage h2 {
