@@ -65,8 +65,7 @@ function initMain() {
 	article.style.padding = "0 25px 75px 25px";
 	article.style.zIndex = 3;
 	article.style.textAlign = "justify";
-	bgimage = document.createElement("img");
-	bgimage.
+	// bgimage = document.createElement("img");
 	body.appendChild(article);
 }
 
