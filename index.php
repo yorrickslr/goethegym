@@ -10,12 +10,12 @@
 	<header>
 		<a href="#" onclick="reset()"><h1>goethegym.net</h1></a>
 		<nav>
-			<a href="subsite.html" title="Informationen rund um die Schule" class="material-icon">&#xE88F;</a>
-			<a href="subsite.html" title="Förderverein" class="material-icon">&#xE0AF;</a>
-			<a href="subsite.html" title="Aktivitäten" class="material-icon">&#xE52F;</a>
-			<a href="subsite.html" title="Personen" class="material-icon">&#xE7EF;</a>
-			<a href="subsite.html" title="Kontakt und Impressum" class="material-icon">&#xE0D1;</a>
-			<a href="subsite.html" title="Downloads" class="material-icon">&#xE2C0;</a>
+			<a href="subsite.php?article=geschichte" title="Informationen rund um die Schule" class="material-icon">&#xE88F;</a>
+			<a href="subsite.php?article=foerderverein" title="Förderverein" class="material-icon">&#xE0AF;</a>
+			<a href="subsite.php?article=ag-plan" title="Aktivitäten" class="material-icon">&#xE52F;</a>
+			<a href="subsite.php?article=lehrer" title="Personen" class="material-icon">&#xE7EF;</a>
+			<a href="subsite.php" title="Kontakt und Impressum" class="material-icon">&#xE0D1;</a>
+			<a href="subsite.php" title="Downloads" class="material-icon">&#xE2C0;</a>
 		</nav>
 		<a class="login"></a>
 	</header>
@@ -24,7 +24,7 @@
 		<section></section>
 		<h2>News</h2>
 		<div class="tilewrapper">
-			<a href="subsite.html" name="neuer-schulhof" onclick="loadArticle(event);" class="newstile" style="background-image: url('media/test.png');">
+			<a href="subsite.php" name="neuer-schulhof" onclick="loadArticle(event);" class="newstile" style="background-image: url('media/test.png');">
 				<img src="images/pattern1.png">
 				<h3>Wunderschöner neuer Schulhof jetzt endlich eröffnet</h3>
 				<article>
@@ -36,7 +36,7 @@
 					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</article>
 			</a>
-			<a href="subsite.html" name="lorem-ipsum" onclick="loadArticle(event);" class="newstile" style="background-image: url('media/test2.jpg');">
+			<a href="subsite.php" name="lorem-ipsum" onclick="loadArticle(event);" class="newstile" style="background-image: url('media/test2.jpg');">
 				<img src="images/pattern2.png">
 				<h3>Lorem Ipsum</h3>
 				<article>
@@ -48,7 +48,7 @@
 					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</article>
 			</a>
-			<a href="subsite.html" name="test2" onclick="loadArticle(event)" class="newstile" style="background-image: url('media/test3.jpg');">
+			<a href="subsite.php" name="test2" onclick="loadArticle(event)" class="newstile" style="background-image: url('media/test3.jpg');">
 				<img src="images/pattern5.png">
 				<h3>Lorem Ipsum</h3>
 				<article>

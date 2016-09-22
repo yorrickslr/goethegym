@@ -11,3 +11,4 @@
 - Anpassung height article an main vise versa
 - Schriftgröße Artikel größer als Vorschau?
 - margin on img in article
+- alte homepage -> mobile site umbauen
