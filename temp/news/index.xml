@@ -1,0 +1,11 @@
+<?xml version='1.0' standalone='yes'?>
+<articles>
+	<article>
+		<title>Mensaeröffnung</title>
+		<path>mensaeroeffnung</path>
+	</article>
+	<article>
+		<title>Stolpersteingeschichten</title>
+		<path>stolpersteine</path>
+	</article>
+</articles>

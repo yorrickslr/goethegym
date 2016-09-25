@@ -59,14 +59,25 @@ function initMain() {
 	article.style.left = 0;
 	article.style.width = 0.6 * body.clientWidth - 50 + "px";
 	article.style.minHeight = main.offsetHeight + "px";
-	article.style.boxShadow = "0 0 5px gray";
+	article.style.boxShadow = "0 0 10px #555";
 	article.style.backgroundColor = "#fff";
 	article.style.transitionDuration = ".5s";
 	article.style.padding = "0 25px 75px 25px";
 	article.style.zIndex = 3;
 	article.style.textAlign = "justify";
-	// bgimage = document.createElement("img");
 	body.appendChild(article);
+	bgimage = document.createElement("div");
+	bgimage.style.position = "fixed";
+	bgimage.style.top = "50px";
+	bgimage.style.left = 0;
+	bgimage.style.width = 0.2 * body.clientWidth + "px";
+	bgimage.style.height = body.clientHeight - 50 + "px";
+	bgimage.style.zIndex = 0;
+	bgimage.backgroundColor = "pink";
+	bgimage.style.backgroundImage = "url(images/fill_pattern.png)";
+	bgimage.style.backgroundSize = "75%";
+	bgimage.style.backgroundPosition = "center";
+	body.appendChild(bgimage);
 }
 
 function scrollUp() {
@@ -84,28 +95,42 @@ function scrollTiles(count) {
 	tiles.style.left = -tilepos * 395 + "px";
 }
 
-function loadArticle(event) {
-	event.preventDefault();
-	if(shown==1) return;
-	main.style.width = 0.2 * body.clientWidth + "px";
-	main.style.left = 0.8 * body.clientWidth + "px";
-	main.style.boxShadow = "0 0 5px gray";
-	main.style.cursor = "pointer";
-	main.style.position = "fixed";
-	main.addEventListener("click",reset,true);
-	article.style.left = 0.2 * body.clientWidth + "px";
-	shown = 1;
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			article.innerHTML = this.responseText;
-			footer.style.top = article.offsetHeight + "px";
-		}
-	};
-	log(event.target);
-	url = "news/" + event.target.parentNode.name + ".html"
-	xhttp.open("GET", url, true);
-	xhttp.send();
+function loadArticle(event,path) {
+	try{
+		event.preventDefault();
+	} finally {
+		if(shown==1) return;
+		main.style.width = 0.2 * body.clientWidth + "px";
+		main.style.left = 0.8 * body.clientWidth + "px";
+		main.style.boxShadow = "0 0 10px #555";
+		main.style.cursor = "pointer";
+		main.style.position = "fixed";
+		main.addEventListener("click",reset,true);
+		article.style.left = 0.2 * body.clientWidth + "px";
+		shown = 1;
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				article.innerHTML = this.responseText;
+				footer.style.top = article.offsetHeight + "px";
+			}
+		};
+		log(event.target);
+		target = "news?path=" + path + ".html&content-only";
+		xhttp.open("GET", target, true);
+		xhttp.send();
+		tmpimg = new Image();
+		tmpimg.addEventListener("load",function(){
+			if(this.width<1) {
+				bgimage.style.backgroundImage = "url(images/fill_pattern.png)";
+				bgimage.style.backgroundSize = "75%";
+			} else {
+				bgimage.style.backgroundImage = "url('news/" + path + ".jpg')";
+				bgimage.style.backgroundSize = "cover";
+			}
+		})
+		tmpimg.src = "news/" + path + ".jpg";
+	}
 }
 
 function reset() {
@@ -121,6 +146,8 @@ function reset() {
 	setTimeout(function(){
 		article.innerHTML = "";
 		shown = 0;
+		bgimage.style.backgroundImage = "url(images/fill_pattern.png)";
+		bgimage.style.backgroundSize = "75%";
 	}, 500);
 }
 

@@ -20,49 +20,40 @@
 		<a class="login"></a>
 	</header>
 	<main class="mainpage">
-		<section></section>
-		<section></section>
 		<h2>News</h2>
 		<div class="tilewrapper">
-			<a href="subsite.php" name="neuer-schulhof" onclick="loadArticle(event);" class="newstile" style="background-image: url('media/test.png');">
-				<img src="images/pattern1.png">
-				<h3>Wunderschöner neuer Schulhof jetzt endlich eröffnet</h3>
-				<article>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</article>
-			</a>
-			<a href="subsite.php" name="lorem-ipsum" onclick="loadArticle(event);" class="newstile" style="background-image: url('media/test2.jpg');">
-				<img src="images/pattern2.png">
-				<h3>Lorem Ipsum</h3>
-				<article>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</article>
-			</a>
-			<a href="subsite.php" name="test2" onclick="loadArticle(event)" class="newstile" style="background-image: url('media/test3.jpg');">
-				<img src="images/pattern5.png">
-				<h3>Lorem Ipsum</h3>
-				<article>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</article>
-			</a>
+		<?php
+			if (!file_exists("temp/news/index.xml")) {
+			    ?>
+				<h2>Wow. Da ist ganz schön was schiefgelaufen.</h2>
+				<p>Die Website will wohl gerade nicht. Schau in ein paar Minuten nochmal vorbei.</p>
+				<?php 
+				exit();
+			}
+			$articles = simplexml_load_file("temp/news/index.xml");
+			foreach($articles->article as $article) {
+				?>
+				<a href="<?= 'news/' . $article->path . '.html' ?>" name="<?= $article->title ?>" onclick="loadArticle(event,'<?= $article->path ?>');" class="newstile" style="background-image: url('<?= 'news/' . $article->path . '_teaser.jpg' ?>');">
+					<img src="images/pattern<?= rand(1,6) ?>.png">
+					<h3><?= $article->title ?></h3>
+					<article>
+					<?php
+						$url = "temp/news/" . $article->path . "/teaser.txt";
+						$file = file_get_contents($url);
+						if($file == FALSE) {
+							echo "<h2>404: file not found!</h2>";
+							echo "48: Da ist wohl was schief gelaufen =/";
+						} else {
+							echo $file;
+						}
+					?>
+					</article>
+				</a>
+				<?php
+			}
+			?>
 		</div>
 	</main>
 	<footer></footer>
-	<nav></nav>
 </body>
 </html>

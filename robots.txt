@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /temp/
+Disallow /scripts/
+Disallow /styles/
+Disallow /images/
