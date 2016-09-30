@@ -12,3 +12,4 @@
 - Schriftgröße Artikel größer als Vorschau?
 - margin on img in article
 - alte homepage -> mobile site umbauen
+- dynamic scroll width on tiles

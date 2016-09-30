@@ -1,5 +1,5 @@
 <?php
-	error_reporting(0);
+	//error_reporting(0);
 	if(!isset($_GET["path"])) {
 		echo "<h2>500: internal server error!</h2>";
 		echo "5: Da ist wohl was schief gelaufen =/";

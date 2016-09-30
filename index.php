@@ -14,8 +14,8 @@
 			<a href="subsite.php?article=foerderverein" title="Förderverein" class="material-icon">&#xE0AF;</a>
 			<a href="subsite.php?article=ag-plan" title="Aktivitäten" class="material-icon">&#xE52F;</a>
 			<a href="subsite.php?article=lehrer" title="Personen" class="material-icon">&#xE7EF;</a>
-			<a href="subsite.php" title="Kontakt und Impressum" class="material-icon">&#xE0D1;</a>
-			<a href="subsite.php" title="Downloads" class="material-icon">&#xE2C0;</a>
+			<a onclick="scrollTiles(-2)" title="Kontakt und Impressum" class="material-icon">&#xE0D1;</a>
+			<a onclick="scrollTiles(2)" title="Downloads" class="material-icon">&#xE2C0;</a>
 		</nav>
 		<a class="login"></a>
 	</header>
@@ -31,10 +31,11 @@
 				exit();
 			}
 			$articles = simplexml_load_file("temp/news/index.xml");
+			$count = rand(1,6);
 			foreach($articles->article as $article) {
 				?>
 				<a href="<?= 'news/' . $article->path . '.html' ?>" name="<?= $article->title ?>" onclick="loadArticle(event,'<?= $article->path ?>');" class="newstile" style="background-image: url('<?= 'news/' . $article->path . '_teaser.jpg' ?>');">
-					<img src="images/pattern<?= rand(1,6) ?>.png">
+					<img src="images/pattern<?= $count ?>.png">
 					<h3><?= $article->title ?></h3>
 					<article>
 					<?php
@@ -50,6 +51,9 @@
 					</article>
 				</a>
 				<?php
+				$count++;
+				if($count==7)
+					$count = 1;
 			}
 			?>
 		</div>

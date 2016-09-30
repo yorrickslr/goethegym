@@ -85,6 +85,9 @@ function scrollUp() {
 }
 
 function scrollTiles(count) {
+	if(typeof(count) === "undefined") {
+		return;
+	}
 	if(tilepos+count < 0) {
 		tilepos = 0;
 	} else if(tilepos+count+1 >= tiles.children.length) {
@@ -143,6 +146,7 @@ function reset() {
 	article.style.left = 0;
 	footer.style.top = main.offsetHeight + 50 + "px";
 	//scrollUp();
+	scrollTo(0,0);
 	setTimeout(function(){
 		article.innerHTML = "";
 		shown = 0;

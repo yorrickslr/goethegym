@@ -1,7 +1,6 @@
 <?xml version="1.0" standalone="yes"?>
 <articles>
-	<info>Neuer Vertretungsplan online!</info>
-	<info>Abiturienten schauen bitte auf den Abiplan <a href="google.com">hier</a></info>
+	<info></info>
 	<article>
 		<title>Mensaeröffnung</title>
 		<path>mensaeroeffnung</path>
@@ -13,5 +12,25 @@
 	<article>
 		<title>Frankreichaustausch: Ein Reisebericht</title>
 		<path>frankreichaustausch</path>
+	</article>
+	<article>
+		<title>Abiturpreis Sozialkunde</title>
+		<path>abiturpreis</path>
+	</article>
+	<article>
+		<title>Circus Gaudimus in Gutmannshausen</title>
+		<path>gutmannshausen</path>
+	</article>
+	<article>
+		<title>Omri Vitis und Guy Strier im Goethegymnasium</title>
+		<path>omri-vitis</path>
+	</article>
+	<article>
+		<title>Podest-Platz erkämpft!</title>
+		<path>volleyball</path>
+	</article>
+	<article>
+		<title>Vorstellung der Berufsberaterin Frau Anders</title>
+		<path>anders</path>
 	</article>
 </articles>

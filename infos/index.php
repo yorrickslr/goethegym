@@ -14,11 +14,8 @@
 		echo "12: Da ist wohl was schief gelaufen =/";
 		exit;
 	}
-
-	if($path["filename"]=="index" || $path["filename"]=="") {
-		$articles = simplexml_load_file("../temp/infos/index.xml");
-		?>
-		<!DOCTYPE html>
+	?>
+	<!DOCTYPE html>
 		<html>
 		<head>
 			<title></title>
@@ -40,26 +37,30 @@
 				<a class="login"></a>
 			</header>
 			<main class="subsite">
-				<h2>Informationen rund um die Schule</h2>
-				<nav>
-				<?php
-					foreach($articles->article as $article) {
-						echo '<a href="#' . $article->path . '">' . $article->title . "</a>";
-					}
-					echo "</nav>\n<article>";
-					foreach($articles->article as $article) {
-						$url = "../temp/infos/" . $article->path . ".html";
-						$file = file_get_contents($url);
-						if($file == FALSE) {
-							http_response_code(404);
-							echo "<h2>404: file not found!</h2>";
-							echo "22: Da ist wohl was schief gelaufen =/";
-						} else {
-							echo '<h3 name="' . $article->path . '">' . $article->title . '</h3>';
-							echo $file;
+			<?php
+				if($path["filename"]=="index" || $path["filename"]=="") {
+					$articles = simplexml_load_file("../temp/infos/index.xml");
+					?>
+					<h2>Informationen rund um die Schule</h2>
+					<nav>
+					<?php
+						foreach($articles->article as $article) {
+							echo '<a href="#' . $article->path . '">' . $article->title . "</a>";
 						}
-					}
-				?>
+						echo "</nav>\n<article>";
+						foreach($articles->article as $article) {
+							$url = "../temp/infos/" . $article->path . ".html";
+							$file = file_get_contents($url);
+							if($file == FALSE) {
+								http_response_code(404);
+								echo "<h2>404: file not found!</h2>";
+								echo "22: Da ist wohl was schief gelaufen =/";
+							} else {
+								echo '<h3 name="' . $article->path . '">' . $article->title . '</h3>';
+								echo $file;
+							}
+						}
+					?>
 				</article>
 			</main>
 			<footer></footer>
@@ -71,24 +72,27 @@
 	}
 
 	if($path["extension"] == "html") {
-		if(isset($_GET["content-only"])) {
-			$url = "../temp/infos/" . $path["filename"] . "/text.html";
-			$file = file_get_contents($url);
-			if($file == FALSE) {
-				http_response_code(404);
-				echo "<h2>404: file not found!</h2>";
-				echo "22: Da ist wohl was schief gelaufen =/";
-			} else {
-				echo $file;
-			}
-			exit;
+		$url = "../temp/infos/" . $path["filename"] . ".html";
+		$file = file_get_contents($url);
+		if($file == FALSE) {
+			http_response_code(404);
+			echo "<h2>404: file not found!</h2>";
+			echo "22: Da ist wohl was schief gelaufen =/";
 		} else {
 			?>
-			<h2>test</h2>
+					<article>
+						<?= $file ?>
+					</article>
+				</main>
+				<footer></footer>
+				<nav></nav>
+			</body>
+			</html>
 			<?php
-			exit();
 		}
+		exit;
 	}
+
 	http_response_code(404);
 	echo "<h2>404: file not found!</h2>";
 	echo "40: Da ist wohl was schief gelaufen =/";
