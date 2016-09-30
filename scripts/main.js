@@ -91,7 +91,7 @@ function scrollTiles(count) {
 	if(tilepos+count < 0) {
 		tilepos = 0;
 	} else if(tilepos+count+1 >= tiles.children.length) {
-		tilepos = tiles.children.length - 1;
+		tilepos = tiles.children.length - 2;
 	} else {
 		tilepos += count;
 	}

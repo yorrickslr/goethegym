@@ -10,10 +10,10 @@
 	<header>
 		<a href="#" onclick="reset()"><h1>goethegym.net</h1></a>
 		<nav>
-			<a href="subsite.php?article=geschichte" title="Informationen rund um die Schule" class="material-icon">&#xE88F;</a>
-			<a href="subsite.php?article=foerderverein" title="Förderverein" class="material-icon">&#xE0AF;</a>
-			<a href="subsite.php?article=ag-plan" title="Aktivitäten" class="material-icon">&#xE52F;</a>
-			<a href="subsite.php?article=lehrer" title="Personen" class="material-icon">&#xE7EF;</a>
+			<a href="infos/" title="Informationen rund um die Schule" class="material-icon">&#xE88F;</a>
+			<a href="verein/" title="Förderverein" class="material-icon">&#xE0AF;</a>
+			<a href="#" title="Aktivitäten" class="material-icon">&#xE52F;</a>
+			<a href="#" title="Personen" class="material-icon">&#xE7EF;</a>
 			<a onclick="scrollTiles(-2)" title="Kontakt und Impressum" class="material-icon">&#xE0D1;</a>
 			<a onclick="scrollTiles(2)" title="Downloads" class="material-icon">&#xE2C0;</a>
 		</nav>
@@ -56,6 +56,7 @@
 					$count = 1;
 			}
 			?>
+			<div style="position: absolute; left: 15px; top: 300px; background-image: url(images/arrow.png); transform: rotate(-45deg); width: 50px; height: 50px;"></div>
 		</div>
 	</main>
 	<footer></footer>

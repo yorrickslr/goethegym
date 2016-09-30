@@ -6,10 +6,12 @@
 - PHP Layout
 - Backend
 - javascript -> css classes
-- reseize handling in js
+- resize handling in js
 - mobile noch auf alte website verlinken
 - Anpassung height article an main vise versa
 - Schriftgröße Artikel größer als Vorschau?
 - margin on img in article
 - alte homepage -> mobile site umbauen
 - dynamic scroll width on tiles
+- make menu unselectable
+- drucken????? Wer druckt schon?! Eltern.

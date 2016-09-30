@@ -8,4 +8,24 @@
 		<title>Konzept der Schule</title>
 		<path>konzept</path>
 	</article>
+	<article>
+		<title>Spezialisierungsmöglichkeiten</title>
+		<path>moeglichkeiten</path>
+	</article>
+	<article>
+		<title>Ausbildungsschule</title>
+		<path>ausbildungsschule</path>
+	</article>
+	<article>
+		<title>Jugend-debattiert-schule</title>
+		<path>jugend-debattiert-schule</path>
+	</article>
+	<article>
+		<title>Eigenverantwortliche Schule</title>
+		<path>eigenverantwortliche-schule</path>
+	</article>
+	<article>
+		<title>Berufswahlfreundliche Schule</title>
+		<path>berufswahlfreundliche-schule</path>
+	</article>
 </articles>
