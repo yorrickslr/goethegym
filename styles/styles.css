@@ -206,6 +206,7 @@ footer {
 	box-shadow: 0 0 3px gray;
 	padding: 10px;
 	background-color: #fff;
+	text-align: justify;
 }
 
 .subsite article a {

@@ -3,3 +3,4 @@ Disallow: /temp/
 Disallow /scripts/
 Disallow /styles/
 Disallow /images/
+Disallow /font/

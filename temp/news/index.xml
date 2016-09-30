@@ -1,5 +1,7 @@
-<?xml version='1.0' standalone='yes'?>
+<?xml version="1.0" standalone="yes"?>
 <articles>
+	<info>Neuer Vertretungsplan online!</info>
+	<info>Abiturienten schauen bitte auf den Abiplan <a href="google.com">hier</a></info>
 	<article>
 		<title>Mensaeröffnung</title>
 		<path>mensaeroeffnung</path>
@@ -7,5 +9,9 @@
 	<article>
 		<title>Stolpersteingeschichten</title>
 		<path>stolpersteine</path>
+	</article>
+	<article>
+		<title>Frankreichaustausch: Ein Reisebericht</title>
+		<path>frankreichaustausch</path>
 	</article>
 </articles>

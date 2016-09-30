@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="yes"?>
+<articles>
+	<article>
+		<title>Geschichte</title>
+		<path>geschichte</path>
+	</article>
+	<article>
+		<title>Konzept der Schule</title>
+		<path>konzept</path>
+	</article>
+</articles>

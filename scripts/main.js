@@ -62,7 +62,7 @@ function initMain() {
 	article.style.boxShadow = "0 0 10px #555";
 	article.style.backgroundColor = "#fff";
 	article.style.transitionDuration = ".5s";
-	article.style.padding = "0 25px 75px 25px";
+	article.style.padding = "0 25px 100px 25px";
 	article.style.zIndex = 3;
 	article.style.textAlign = "justify";
 	body.appendChild(article);
