@@ -172,6 +172,39 @@ footer {
 	padding: 0 15px;
 }
 
+.tileswitch {
+	position: absolute;
+	top: 407px;
+	background-image: url(../images/arrow.png);
+	width: 75px; height: 75px;
+	/*box-shadow: 0 0 5px gray;
+	opacity: 0.75;*/
+	cursor: pointer;
+	transition-duration: .2s;
+}
+
+.tileswitch:hover {
+	opacity: 1;
+}
+
+.tileswitch_left {
+	left: -50px;
+	transform: rotate(-45deg);
+}
+
+.tileswitch_left:hover {
+	left: 15px;
+}
+
+.tileswitch_right {
+	right: -50px;
+	transform: rotate(135deg);
+}
+
+.tileswitch_right:hover {
+	right: 15px;
+}
+
 /* subsite */
 .subsite {
 	min-height: 100%; /*fallback*/
@@ -199,6 +232,14 @@ footer {
 	box-shadow: 0 0 3px gray;
 	margin: 10px 0 30px 0;
 	padding: 10px;
+	text-align: center;
+}
+
+.subsite nav a {
+	color: #6aa70a;
+	margin: 15px;
+	text-decoration: underline;
+	text-decoration-style: dotted;
 }
 
 .subsite article {
@@ -217,4 +258,28 @@ footer {
 .subsite article a:hover {
 	text-decoration: underline;
 	text-decoration-style: dotted;
+}
+
+.subsite .up {
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	opacity: 0.5;
+	background-image: url(../images/arrow.png);
+	transition-duration: .2s;
+	width: 75px;
+	height: 75px;
+	cursor: pointer;
+	transform: rotateZ(45deg);
+	box-shadow: 0 0 3px gray;
+}
+
+.subsite .up:hover {
+	opacity: 1;
+}
+
+.subsite a.anchor {
+	position: relative;
+    top: -50px;
+    visibility: hidden;
 }

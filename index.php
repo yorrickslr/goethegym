@@ -56,7 +56,6 @@
 					$count = 1;
 			}
 			?>
-			<div style="position: absolute; left: 15px; top: 300px; background-image: url(images/arrow.png); transform: rotate(-45deg); width: 50px; height: 50px;"></div>
 		</div>
 	</main>
 	<footer></footer>

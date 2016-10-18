@@ -78,6 +78,14 @@ function initMain() {
 	bgimage.style.backgroundSize = "75%";
 	bgimage.style.backgroundPosition = "center";
 	body.appendChild(bgimage);
+	tileswitch_left = document.createElement("div");
+	tileswitch_right = document.createElement("div");
+	tileswitch_left.className = "tileswitch tileswitch_left";
+	tileswitch_right.className = "tileswitch tileswitch_right";
+	tileswitch_left.onclick = function(){scrollTiles(-2)};
+	tileswitch_right.onclick = function(){scrollTiles(2)};
+	main.appendChild(tileswitch_left);
+	main.appendChild(tileswitch_right);
 }
 
 function scrollUp() {
@@ -91,7 +99,7 @@ function scrollTiles(count) {
 	if(tilepos+count < 0) {
 		tilepos = 0;
 	} else if(tilepos+count+1 >= tiles.children.length) {
-		tilepos = tiles.children.length - 2;
+		tilepos = tiles.children.length -1;
 	} else {
 		tilepos += count;
 	}
@@ -110,6 +118,9 @@ function loadArticle(event,path) {
 		main.style.position = "fixed";
 		main.addEventListener("click",reset,true);
 		article.style.left = 0.2 * body.clientWidth + "px";
+		for(tileswitch of document.getElementsByClassName("tileswitch")) {
+			tileswitch.style.opacity = 0;
+		}		
 		shown = 1;
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
@@ -147,6 +158,9 @@ function reset() {
 	footer.style.top = main.offsetHeight + 50 + "px";
 	//scrollUp();
 	scrollTo(0,0);
+	for(tileswitch of document.getElementsByClassName("tileswitch")) {
+		tileswitch.style = "";
+	}	
 	setTimeout(function(){
 		article.innerHTML = "";
 		shown = 0;
