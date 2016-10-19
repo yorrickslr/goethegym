@@ -6,7 +6,7 @@
 	<link href="styles/styles.css" type="text/css" rel="stylesheet">
 	<script src="scripts/main.js"></script>
 </head>
-<body onload="initMain()">
+<body onload="initialize(); initMain();">
 	<header>
 		<a href="#" onclick="reset()"><h1>goethegym.net</h1></a>
 		<nav>
@@ -17,7 +17,7 @@
 			<a onclick="scrollTiles(-2)" title="Kontakt und Impressum" class="material-icon">&#xE0D1;</a>
 			<a onclick="scrollTiles(2)" title="Downloads" class="material-icon">&#xE2C0;</a>
 		</nav>
-		<a class="login"></a>
+		<a class="login material-icon" onclick="showLogin(this);">&#xE853;</a>
 	</header>
 	<main class="mainpage">
 		<h2>News</h2>
@@ -32,6 +32,16 @@
 			}
 			$articles = simplexml_load_file("temp/news/index.xml");
 			$count = rand(1,6);
+			if(isset($articles->info)) {
+				echo '<div class="newstile" id="infobox" style="background-image:url(images/attention.jpg); padding-top: 360px; cursor: auto; height: 290px; margin-right: 15px">';
+				echo '<h3 style="color: #555;">Wichtige Informationen</h3>';
+				echo '<ul>';
+				foreach($articles->info as $info) {
+					echo "<li>" . $info . '</li>';
+				}
+				echo '</ul>';
+				echo '</div>';
+			}
 			foreach($articles->article as $article) {
 				?>
 				<a href="<?= 'news/' . $article->path . '.html' ?>" name="<?= $article->title ?>" onclick="loadArticle(event,'<?= $article->path ?>');" class="newstile" style="background-image: url('<?= 'news/' . $article->path . '_teaser.jpg' ?>');">
@@ -42,8 +52,8 @@
 						$url = "temp/news/" . $article->path . "/teaser.txt";
 						$file = file_get_contents($url);
 						if($file == FALSE) {
-							echo "<h2>404: file not found!</h2>";
-							echo "48: Da ist wohl was schief gelaufen =/";
+							echo "<h2>404 - file not found!</h2>";
+							echo "Da ist wohl was schief gelaufen =/";
 						} else {
 							echo $file;
 						}

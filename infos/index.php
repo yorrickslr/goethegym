@@ -2,16 +2,14 @@
 	//error_reporting(0);
 	if(!isset($_GET["path"])) {
 		http_response_code(500);
-		echo "<h2>500: internal server error!</h2>";
-		echo "5: Da ist wohl was schief gelaufen =/";
+		header("Location: ../errorpages/500.html");
 		exit;
 	}
 
 	$path = pathinfo($_GET["path"]);
 	if(!isset($path["extension"])) {
 		http_response_code(500);
-		echo "<h2>500: internal server error!</h2>";
-		echo "12: Da ist wohl was schief gelaufen =/";
+		header("Location: ../errorpages/500.html");
 		exit;
 	}
 	?>
@@ -53,8 +51,8 @@
 							$file = file_get_contents($url);
 							if($file == FALSE) {
 								http_response_code(404);
-								echo "<h2>404: file not found!</h2>";
-								echo "22: Da ist wohl was schief gelaufen =/";
+								header("Location: ../errorpages/404.html");
+								exit;
 							} else {
 								echo '<a class="anchor" name="' . $article->path . '"></a><h3>' . $article->title . '</h3>';
 								echo $file;
@@ -77,8 +75,8 @@
 		$file = file_get_contents($url);
 		if($file == FALSE) {
 			http_response_code(404);
-			echo "<h2>404: file not found!</h2>";
-			echo "22: Da ist wohl was schief gelaufen =/";
+			header("Location: ../errorpages/404.html");
+			exit;
 		} else {
 			?>
 					<article>
@@ -95,6 +93,6 @@
 	}
 
 	http_response_code(404);
-	echo "<h2>404: file not found!</h2>";
-	echo "40: Da ist wohl was schief gelaufen =/";
+	header("Location: ../errorpages/404.html");
+	exit;
 ?>

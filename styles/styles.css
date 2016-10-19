@@ -91,6 +91,18 @@ header nav a:hover {
 	border-color: #fff;
 }
 
+header .login {
+	font-weight: normal;
+	margin: 5px 15px;
+	font-size: 2em;
+	color: white;
+	text-decoration: none;
+	transition-duration: .2s;
+	border-bottom: 2px solid rgba(0,0,0,0);
+	cursor: pointer;
+	float: right;
+}
+
 footer {
 	width: 100%;
 	height: 150px;
@@ -248,6 +260,7 @@ footer {
 	padding: 10px;
 	background-color: #fff;
 	text-align: justify;
+	font-size: 1.1em;
 }
 
 .subsite article a {
@@ -258,6 +271,10 @@ footer {
 .subsite article a:hover {
 	text-decoration: underline;
 	text-decoration-style: dotted;
+}
+
+.subsite article img {
+	margin: 10px;
 }
 
 .subsite .up {
@@ -282,4 +299,15 @@ footer {
 	position: relative;
     top: -50px;
     visibility: hidden;
+}
+
+.loginform {
+	position: fixed;
+	right: 10px;
+	top: 60px;
+	box-shadow: 0 0 3px gray;
+	width: 300px;
+	height: 150px;
+	z-index: 6;
+	background-color: white;
 }

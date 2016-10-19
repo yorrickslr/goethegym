@@ -1,6 +1,13 @@
 <?xml version="1.0" standalone="yes"?>
 <articles>
-	<!--<info></info>-->
+	<!-- BEISPIEL
+	<info>Eine Information</info>
+	<article>
+		<title>Titel des Beitrags</title>
+		<path>ordner in temp und link</path>
+	</article>
+	-->
+	<info>Endlich ist sie da, die neue Website!</info>
 	<article>
 		<title>Mensaeröffnung</title>
 		<path>mensaeroeffnung</path>

@@ -8,6 +8,7 @@ var bgimage;
 var tiles;
 var tilepos = 0;
 var shown = 0;
+var loginform;
 
 function log(string) {
 	console.log(string);
@@ -22,11 +23,17 @@ function initialize() {
 		body = document.body;
 		main = document.getElementsByTagName("main")[0];
 		footer = document.getElementsByTagName("footer")[0];
+		window.addEventListener("resize", function() {
+			if(shown) {
+				log("resize with displayed article");
+			} else {
+				log("resize with displayed main");
+			}
+		});
 	}
 }
 
 function initMain() {
-	initialize();
 	tiles = document.getElementsByClassName("tilewrapper")[0];
 	log("initMain()");
 	main.style.padding = "0";
@@ -65,6 +72,7 @@ function initMain() {
 	article.style.padding = "0 25px 100px 25px";
 	article.style.zIndex = 3;
 	article.style.textAlign = "justify";
+	article.style.fontSize = "1.1em";
 	body.appendChild(article);
 	bgimage = document.createElement("div");
 	bgimage.style.position = "fixed";
@@ -120,7 +128,12 @@ function loadArticle(event,path) {
 		article.style.left = 0.2 * body.clientWidth + "px";
 		for(tileswitch of document.getElementsByClassName("tileswitch")) {
 			tileswitch.style.opacity = 0;
-		}		
+		}
+		try {
+			document.getElementById("infobox").style.cursor = "pointer";
+		} finally {
+			log("no infos found");
+		}
 		shown = 1;
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
@@ -155,6 +168,11 @@ function reset() {
 	main.style.cursor = "auto";
 	main.style.position = "absolute";
 	article.style.left = 0;
+	try {
+		document.getElementById("infobox").style.cursor = "auto";
+	} finally {
+		log("no infos found");
+	}
 	footer.style.top = main.offsetHeight + 50 + "px";
 	//scrollUp();
 	scrollTo(0,0);
@@ -169,7 +187,12 @@ function reset() {
 	}, 500);
 }
 
-function initSub() {
-	initialize();
-	log("initSub()");
+function showLogin(obj) {
+	loginform = document.createElement("div");
+	loginform.className = "loginform";
+	body.appendChild(loginform);
+}
+
+function hideLogin(obj) {
+	loginform.parentNode.removeChild(loginform);
 }
