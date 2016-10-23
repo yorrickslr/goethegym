@@ -19,6 +19,13 @@
 		</nav>
 		<a class="login material-icon" onclick="showLogin(this);">&#xE853;</a>
 	</header>
+	<div id="login">
+		<a href="#vertreungsplan">Vertretungsplan</a><br>
+		<a href="#stundenplan">Stundenplan</a><br>
+		<a href="#monatsplan">Monatsplan</a><br>
+		<a href="#jahresplan">Jahresplan</a><br>
+		<a href="#more" style="float: right; font-size: 1.2em; margin-top: 0px;">mehr...</a><br>
+	</div>
 	<main class="mainpage">
 		<h2>News</h2>
 		<div class="tilewrapper">

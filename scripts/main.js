@@ -8,7 +8,8 @@ var bgimage;
 var tiles;
 var tilepos = 0;
 var shown = 0;
-var loginform;
+var login;
+var loginbutton;
 
 function log(string) {
 	console.log(string);
@@ -23,6 +24,8 @@ function initialize() {
 		body = document.body;
 		main = document.getElementsByTagName("main")[0];
 		footer = document.getElementsByTagName("footer")[0];
+		login = document.getElementById("login");
+		loginbutton = document.getElementsByClassName("login")[0];
 		window.addEventListener("resize", function() {
 			if(shown) {
 				log("resize with displayed article");
@@ -187,12 +190,26 @@ function reset() {
 	}, 500);
 }
 
-function showLogin(obj) {
-	loginform = document.createElement("div");
-	loginform.className = "loginform";
-	body.appendChild(loginform);
+function showLogin() {
+	login.style.display = "initial";
+	window.setTimeout(function() {
+		login.style.opacity = 1;
+		login.style.top = "60px";
+	},200);
+	loginbutton.onclick = function() {
+		hideLogin(this);
+	}
+	main.addEventListener("click", hideLogin);
 }
 
-function hideLogin(obj) {
-	loginform.parentNode.removeChild(loginform);
+function hideLogin() {
+	login.style.opacity = 0;
+	login.style.top = "50px";
+	window.setTimeout(function() {
+		login.style.display = "none";
+	},200);
+	loginbutton.onclick = function() {
+		showLogin(this);
+	}
+	main.removeEventListener("click", hideLogin);
 }

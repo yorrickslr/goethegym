@@ -50,7 +50,7 @@ header {
 	background-image: url(../images/noise.png);
 	overflow: hidden;
 	cursor: default;
-	z-index: 5;
+	z-index: 6;
 }
 
 h1 {
@@ -301,13 +301,25 @@ footer {
     visibility: hidden;
 }
 
-.loginform {
+#login {
 	position: fixed;
 	right: 10px;
-	top: 60px;
+	top: 35px;
 	box-shadow: 0 0 3px gray;
-	width: 300px;
+	width: 250px;
 	height: 150px;
-	z-index: 6;
+	z-index: 5;
 	background-color: white;
+	opacity: 0;
+	display: none;
+	transition: top .2s, opacity .2s;
+	text-align: center;
+}
+
+#login a {
+	color: #6aa70a;
+	margin: 15px;
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	font-size: 1.4em;
 }
