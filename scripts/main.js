@@ -10,6 +10,7 @@ var tilepos = 0;
 var shown = 0;
 var login;
 var loginbutton;
+var switches = [];
 
 function log(string) {
 	console.log(string);
@@ -58,6 +59,7 @@ function initMain() {
 	tiles.style.left = 0;
 	tiles.style.overflow = "hidden";
 	tiles.style.transitionDuration = ".5s";
+	tiles.style.left = "50px";
 	footer.style.position = "absolute";
 	if(footer.offsetTop<body.clientHeight)
 	footer.style.top = main.offsetHeight + 50 + "px";
@@ -89,14 +91,23 @@ function initMain() {
 	bgimage.style.backgroundSize = "75%";
 	bgimage.style.backgroundPosition = "center";
 	body.appendChild(bgimage);
-	tileswitch_left = document.createElement("div");
-	tileswitch_right = document.createElement("div");
-	tileswitch_left.className = "tileswitch tileswitch_left";
-	tileswitch_right.className = "tileswitch tileswitch_right";
-	tileswitch_left.onclick = function(){scrollTiles(-2)};
-	tileswitch_right.onclick = function(){scrollTiles(2)};
-	main.appendChild(tileswitch_left);
-	main.appendChild(tileswitch_right);
+	switch_shadow_left = document.createElement("div");
+	switch_shadow_left.className = "switchshadow";
+	switch_shadow_left.style.left = "25px";
+	main.appendChild(switch_shadow_left);
+	switch_shadow_right = document.createElement("div");
+	switch_shadow_right.className = "switchshadow";
+	switch_shadow_right.style.right = "25px";
+	main.appendChild(switch_shadow_right);
+	switch_left = document.createElement("div");
+	switch_right = document.createElement("div");
+	switch_left.className = "switch switch_left";
+	switch_right.className = "switch switch_right";
+	switch_left.onclick = function(){scrollTiles(-2)};
+	switch_right.onclick = function(){scrollTiles(2)};
+	main.appendChild(switch_left);
+	main.appendChild(switch_right);
+	switches.push(switch_right, switch_shadow_right);
 }
 
 function scrollUp() {
@@ -104,7 +115,7 @@ function scrollUp() {
 }
 
 function scrollTiles(count) {
-	if(typeof(count) === "undefined") {
+	if(typeof(count) === "undefined" || shown==1) {
 		return;
 	}
 	if(tilepos+count < 0) {
@@ -114,7 +125,7 @@ function scrollTiles(count) {
 	} else {
 		tilepos += count;
 	}
-	tiles.style.left = -tilepos * 395 + "px";
+	tiles.style.left = -tilepos * 395 + 50 + "px";
 }
 
 function loadArticle(event,path) {
@@ -129,8 +140,8 @@ function loadArticle(event,path) {
 		main.style.position = "fixed";
 		main.addEventListener("click",reset,true);
 		article.style.left = 0.2 * body.clientWidth + "px";
-		for(tileswitch of document.getElementsByClassName("tileswitch")) {
-			tileswitch.style.opacity = 0;
+		for(element of switches) {
+			element.style.opacity = 0;
 		}
 		try {
 			document.getElementById("infobox").style.cursor = "pointer";
@@ -179,8 +190,8 @@ function reset() {
 	footer.style.top = main.offsetHeight + 50 + "px";
 	//scrollUp();
 	scrollTo(0,0);
-	for(tileswitch of document.getElementsByClassName("tileswitch")) {
-		tileswitch.style = "";
+	for(element of switches) {
+		element.style.opacity = 1;
 	}	
 	setTimeout(function(){
 		article.innerHTML = "";

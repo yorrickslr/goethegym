@@ -184,37 +184,39 @@ footer {
 	padding: 0 15px;
 }
 
-.tileswitch {
+.switch {
 	position: absolute;
-	top: 407px;
-	background-image: url(../images/arrow.png);
-	width: 75px; height: 75px;
-	/*box-shadow: 0 0 5px gray;
-	opacity: 0.75;*/
+	top: 70px;
+	height: 685px;
+	width: 50px;
+	background-color: white;
+	z-index: 5;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	transition-duration: .5s;
 	cursor: pointer;
+}
+
+.switchshadow{
+    position:absolute;
+    box-shadow:0 0 10px #555;
+    top: 275px;
+    height: 250px;
+    width: 25px;
+    border-radius: 100%;
+    z-index: 5;
 	transition-duration: .2s;
 }
 
-.tileswitch:hover {
-	opacity: 1;
+.switch_left {
+	left: 0;
+	background-image: url(../images/arrow_left.png);
 }
 
-.tileswitch_left {
-	left: -50px;
-	transform: rotate(-45deg);
-}
-
-.tileswitch_left:hover {
-	left: 15px;
-}
-
-.tileswitch_right {
-	right: -50px;
-	transform: rotate(135deg);
-}
-
-.tileswitch_right:hover {
-	right: 15px;
+.switch_right {
+	right: 0;
+	background-image: url(../images/arrow_right.png);
 }
 
 /* subsite */
