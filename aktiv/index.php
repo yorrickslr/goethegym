@@ -26,8 +26,8 @@
 				<a href="../index.php"><h1>goethegym.net</h1></a>
 				<nav>
 					<a href="../infos/" title="Informationen rund um die Schule" class="material-icon">&#xE88F;</a>
-					<a href="../verein/" title="Förderverein" class="current material-icon">&#xE0AF;</a>
-					<a href="../aktiv/" title="Aktivitäten" class="material-icon">&#xE52F;</a>
+					<a href="../verein/" title="Förderverein" class="material-icon">&#xE0AF;</a>
+					<a href="../aktiv/" title="Aktivitäten" class="current material-icon">&#xE52F;</a>
 					<a href="../personen/" title="Personen" class="material-icon">&#xE7EF;</a>
 					<a href="../kontakt/" title="Kontakt und Impressum" class="material-icon">&#xE0D1;</a>
 					<a href="../downloads/" title="Downloads" class="material-icon">&#xE2C0;</a>
@@ -37,9 +37,9 @@
 			<main class="subsite">
 			<?php
 				if($path["filename"]=="index" || $path["filename"]=="") {
-					$articles = simplexml_load_file("../temp/verein/index.xml");
+					$articles = simplexml_load_file("../temp/aktiv/index.xml");
 					?>
-					<h2>Förderverein</h2>
+					<h2>Aktivitäten</h2>
 					<nav>
 					<?php
 						foreach($articles->article as $article) {
@@ -47,7 +47,7 @@
 						}
 						echo "</nav>\n<article>";
 						foreach($articles->article as $article) {
-							$url = "../temp/verein/" . $article->path . ".html";
+							$url = "../temp/aktiv/" . $article->path . ".html";
 							$file = file_get_contents($url);
 							if($file == FALSE) {
 								http_response_code(404);
@@ -71,7 +71,7 @@
 	}
 
 	if($path["extension"] == "html") {
-		$url = "../temp/verein/" . $path["filename"] . ".html";
+		$url = "../temp/aktiv/" . $path["filename"] . ".html";
 		$file = file_get_contents($url);
 		if($file == FALSE) {
 			http_response_code(404);

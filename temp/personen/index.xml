@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<articles>
+	<article>
+		<title>Lehrer und Verwaltung</title>
+		<path>lehrer</path>
+	</article>
+	<article>
+		<title>Elternsprecher</title>
+		<path>elternsprecher</path>
+	</article>
+	<article>
+		<title>Klassensprecher</title>
+		<path>klassensprecher</path>
+	</article>
+</articles>

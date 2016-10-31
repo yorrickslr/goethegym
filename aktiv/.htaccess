@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteBase /beta/aktiv/
+RewriteRule ^(.+)$ index.php?path=$1 [QSA,NC,L]

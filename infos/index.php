@@ -19,21 +19,28 @@
 			<title></title>
 			<meta charset="UTF-8">
 			<link href="../styles/styles.css" type="text/css" rel="stylesheet">
-			<!--<script src="scripts/main.js"></script>-->
+			<script src="../scripts/main.js"></script>
 		</head>
-		<body>
-			<header>
+		<body onload="initialize();">
+			<header class="noselect">
 				<a href="../index.php"><h1>goethegym.net</h1></a>
 				<nav>
-					<a href="../infos/" title="Informationen rund um die Schule" class="material-icon">&#xE88F;</a>
+					<a href="../infos/" title="Informationen rund um die Schule" class="current material-icon">&#xE88F;</a>
 					<a href="../verein/" title="Förderverein" class="material-icon">&#xE0AF;</a>
-					<a href="#" title="Aktivitäten" class="material-icon">&#xE52F;</a>
-					<a href="#" title="Personen" class="material-icon">&#xE7EF;</a>
-					<a href="#" title="Kontakt und Impressum" class="material-icon">&#xE0D1;</a>
-					<a href="#" title="Downloads" class="material-icon">&#xE2C0;</a>
+					<a href="../aktiv/" title="Aktivitäten" class="material-icon">&#xE52F;</a>
+					<a href="../personen/" title="Personen" class="material-icon">&#xE7EF;</a>
+					<a href="../kontakt/" title="Kontakt und Impressum" class="material-icon">&#xE0D1;</a>
+					<a href="../downloads/" title="Downloads" class="material-icon">&#xE2C0;</a>
 				</nav>
-				<a class="login"></a>
+				<a class="login material-icon" onclick="showLogin(this);">&#xE853;</a>
 			</header>
+			<div id="login">
+				<a href="media/files/vertretungsplan.pdf" target="_blank">Vertretungsplan</a><br>
+				<a href="media/files/stundenplan.pdf" target="_blank">Stundenplan</a><br>
+				<a href="media/files/monatsplan.pdf" target="_blank">Monatsplan</a><br>
+				<a href="media/files/jahresplan.pdf" target="_blank">Jahresplan</a><br>
+				<a href="downloads/" style="float: right; font-size: 1.2em; margin-top: 0px;">mehr...</a><br>
+			</div>
 			<main class="subsite">
 			<?php
 				if($path["filename"]=="index" || $path["filename"]=="") {

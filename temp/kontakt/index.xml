@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<articles>
+	<article>
+		<title>Kontakt</title>
+		<path>kontakt</path>
+	</article>
+	<article>
+		<title>Impressum</title>
+		<path>impressum</path>
+	</article>
+	<article>
+		<title>Rechtliches</title>
+		<path>rechtliches</path>
+	</article>
+</articles>

@@ -1,18 +1,16 @@
-- tile scrollbuttons: transparent auf objekt
-- Quicklinks: im Login-Popup
-- Aktuelles: Ausrufezeichen in News
 - Footer (content und absolute bottom)
 - Sitemap
-- PHP Layout
-- Backend
 - javascript -> css classes
 - resize handling in js
 - mobile noch auf alte website verlinken
-- Anpassung height article an main vise versa
-- Schriftgröße Artikel größer als Vorschau?
+- article schriftgröße
 - margin on img in article
 - alte homepage -> mobile site umbauen
-- dynamic scroll width on tiles
-- make menu unselectable
-- drucken????? Wer druckt schon?! Eltern.
 - menübilder direkt laden ohne PHP
+- errorpages header
+- titles
+
+Inhaltliches:
+- Kürzel auf die Internetseite? -> Anonymisierung sinnlos
+- Copyright auf News
+- Elternvertreter fehlt

@@ -108,6 +108,14 @@ function initMain() {
 	main.appendChild(switch_left);
 	main.appendChild(switch_right);
 	switches.push(switch_right, switch_shadow_right);
+	/* 
+	if(typeof(user) === "undefined") {
+		article.addEventListener("copy", function(e){
+			e.preventDefault();
+			alert("Zum Kopieren von Texten bitte anmelden oder per Mail anfragen!");
+		});
+	}
+	*/
 }
 
 function scrollUp() {
@@ -140,14 +148,15 @@ function loadArticle(event,path) {
 		main.style.position = "fixed";
 		main.addEventListener("click",reset,true);
 		article.style.left = 0.2 * body.clientWidth + "px";
-		for(element of switches) {
-			element.style.opacity = 0;
+		for(i=0; i<switches.length; i++) {
+			switches[i].style.opacity = 0;
 		}
 		try {
 			document.getElementById("infobox").style.cursor = "pointer";
 		} finally {
 			log("no infos found");
 		}
+		scrollTo(0,0);
 		shown = 1;
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
@@ -190,9 +199,9 @@ function reset() {
 	footer.style.top = main.offsetHeight + 50 + "px";
 	//scrollUp();
 	scrollTo(0,0);
-	for(element of switches) {
-		element.style.opacity = 1;
-	}	
+	for(i=0; i<switches.length; i++) {
+		switches[i].style.opacity = 1;
+	}
 	setTimeout(function(){
 		article.innerHTML = "";
 		shown = 0;
@@ -208,7 +217,7 @@ function showLogin() {
 		login.style.top = "60px";
 	},200);
 	loginbutton.onclick = function() {
-		hideLogin(this);
+		hideLogin();
 	}
 	main.addEventListener("click", hideLogin);
 }
@@ -220,7 +229,7 @@ function hideLogin() {
 		login.style.display = "none";
 	},200);
 	loginbutton.onclick = function() {
-		showLogin(this);
+		showLogin();
 	}
 	main.removeEventListener("click", hideLogin);
 }

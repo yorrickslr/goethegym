@@ -11,6 +11,13 @@
        url(../font/MaterialIcons-Regular.ttf) format('truetype');
 }
 
+.noselect {
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
 .material-icon {
   font-family: 'Material Icons';
   display: inline;
@@ -88,6 +95,10 @@ header nav a {
 }
 
 header nav a:hover {
+	border-color: #fff;
+}
+
+header nav .current {
 	border-color: #fff;
 }
 
