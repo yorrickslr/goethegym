@@ -2,14 +2,14 @@
 	//error_reporting(0);
 	if(!isset($_GET["path"])) {
 		http_response_code(500);
-		header("Location: ../errorpages/500.html");
+		header("Location: /errorpag/500.html");
 		exit;
 	}
 
 	$path = pathinfo($_GET["path"]);
 	if(!isset($path["extension"])) {
 		http_response_code(500);
-		header("Location: ../errorpages/500.html");
+		header("Location: /errorpag/500.html");
 		exit;
 	}
 	?>
@@ -58,7 +58,7 @@
 							$file = file_get_contents($url);
 							if($file == FALSE) {
 								http_response_code(404);
-								header("Location: ../errorpages/404.html");
+								header("Location: /errorpag/404.html");
 								exit;
 							} else {
 								echo '<a class="anchor" name="' . $article->path . '"></a><h3>' . $article->title . '</h3>';
@@ -69,36 +69,36 @@
 				</article>
 				<a class="up" href="#"></a>
 			</main>
-			<footer class="noselect">
+				<footer class="noselect">
 					<div class="wrapper">
 						<h2>Informationen</h2>
-						<a href="infos/#geschichte">Geschichte</a>
-						<a href="infos/#konzept">Konzept</a>
-						<a href="infos/#moeglichkeiten">Spezialisierung</a>
-						<a href="infos/#ausbildungsschule">Ausbildungsschule</a>
-						<a href="infos/#jugend-debattiert">Jugend debattiert</a>
-						<a href="infos/#eigenverantwortung">Eigenverantwortung</a>
-						<a href="infos/#berufswahl">Berufswahl</a>
+						<a href="../infos/#geschichte">Geschichte</a>
+						<a href="../infos/#konzept">Konzept</a>
+						<a href="../infos/#moeglichkeiten">Spezialisierung</a>
+						<a href="../infos/#ausbildungsschule">Ausbildungsschule</a>
+						<a href="../infos/#jugend-debattiert">Jugend debattiert</a>
+						<a href="../infos/#eigenverantwortung">Eigenverantwortung</a>
+						<a href="../infos/#berufswahl">Berufswahl</a>
 					</div>
 					<div class="wrapper">
 						<h2>Förderverein</h2>
-						<a href="verein/#foerderverein">Der Verein</a>
+						<a href="../verein/#foerderverein">Der Verein</a>
 					</div>
 					<div class="wrapper">
 						<h2>Aktivitäten</h2>
-						<a href="aktiv/#ag-plan">AG-Plan</a>
+						<a href="../aktiv/#ag-plan">AG-Plan</a>
 					</div>
 					<div class="wrapper">
 						<h2>Personen</h2>
-						<a href="personen/#lehrer">Lehrer / Verwaltung</a>
-						<a href="personen/#elternsprecher">Elternsprecher</a>
-						<a href="personen/#klassensprecher">Klassensprecher</a>
+						<a href="../personen/#lehrer">Lehrer / Verwaltung</a>
+						<a href="../personen/#elternsprecher">Elternsprecher</a>
+						<a href="../personen/#klassensprecher">Klassensprecher</a>
 					</div>
 					<div class="wrapper">
 						<h2>Kontakt</h2>
-						<a href="kontakt/#anschrift">Anschrift</a>
-						<a href="kontakt/#impressum">Impressum</a>
-						<a href="kontakt/#rechtliches">Rechtliches</a>
+						<a href="../kontakt/#anschrift">Anschrift</a>
+						<a href="../kontakt/#impressum">Impressum</a>
+						<a href="../kontakt/#rechtliches">Rechtliches</a>
 					</div>
 				</footer>
 			</body>
@@ -112,7 +112,7 @@
 		$file = file_get_contents($url);
 		if($file == FALSE) {
 			http_response_code(404);
-			header("Location: ../errorpages/404.html");
+			header("Location: /errorpag/404.html");
 			exit;
 		} else {
 			?>
@@ -120,36 +120,36 @@
 						<?= $file ?>
 					</article>
 				</main>
-				<footer class="noselect">
+					<footer class="noselect">
 						<div class="wrapper">
 							<h2>Informationen</h2>
-							<a href="infos/#geschichte">Geschichte</a>
-							<a href="infos/#konzept">Konzept</a>
-							<a href="infos/#moeglichkeiten">Spezialisierung</a>
-							<a href="infos/#ausbildungsschule">Ausbildungsschule</a>
-							<a href="infos/#jugend-debattiert">Jugend debattiert</a>
-							<a href="infos/#eigenverantwortung">Eigenverantwortung</a>
-							<a href="infos/#berufswahl">Berufswahl</a>
+							<a href="../infos/#geschichte">Geschichte</a>
+							<a href="../infos/#konzept">Konzept</a>
+							<a href="../infos/#moeglichkeiten">Spezialisierung</a>
+							<a href="../infos/#ausbildungsschule">Ausbildungsschule</a>
+							<a href="../infos/#jugend-debattiert">Jugend debattiert</a>
+							<a href="../infos/#eigenverantwortung">Eigenverantwortung</a>
+							<a href="../infos/#berufswahl">Berufswahl</a>
 						</div>
 						<div class="wrapper">
 							<h2>Förderverein</h2>
-							<a href="verein/#foerderverein">Der Verein</a>
+							<a href="../verein/#foerderverein">Der Verein</a>
 						</div>
 						<div class="wrapper">
 							<h2>Aktivitäten</h2>
-							<a href="aktiv/#ag-plan">AG-Plan</a>
+							<a href="../aktiv/#ag-plan">AG-Plan</a>
 						</div>
 						<div class="wrapper">
 							<h2>Personen</h2>
-							<a href="personen/#lehrer">Lehrer / Verwaltung</a>
-							<a href="personen/#elternsprecher">Elternsprecher</a>
-							<a href="personen/#klassensprecher">Klassensprecher</a>
+							<a href="../personen/#lehrer">Lehrer / Verwaltung</a>
+							<a href="../personen/#elternsprecher">Elternsprecher</a>
+							<a href="../personen/#klassensprecher">Klassensprecher</a>
 						</div>
 						<div class="wrapper">
 							<h2>Kontakt</h2>
-							<a href="kontakt/#anschrift">Anschrift</a>
-							<a href="kontakt/#impressum">Impressum</a>
-							<a href="kontakt/#rechtliches">Rechtliches</a>
+							<a href="../kontakt/#anschrift">Anschrift</a>
+							<a href="../kontakt/#impressum">Impressum</a>
+							<a href="../kontakt/#rechtliches">Rechtliches</a>
 						</div>
 					</footer>
 				</body>
@@ -160,6 +160,6 @@
 	}
 
 	http_response_code(404);
-	header("Location: ../errorpages/404.html");
+	header("Location: /errorpag/404.html");
 	exit;
 ?>
