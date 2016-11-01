@@ -2,14 +2,14 @@
 	error_reporting(0);
 	if(!isset($_GET["path"])) {
 		http_response_code(500);
-		header("Location: /errorpag/500.html");
+		header("Location: /errorpage/500.html");
 		exit;
 	}
 
 	$path = pathinfo($_GET["path"]);
 	if(!isset($path["extension"])) {
 		http_response_code(500);
-		header("Location: /errorpag/500.html");
+		header("Location: /errorpage/500.html");
 		exit;
 	}
 
@@ -19,7 +19,7 @@
 			$file = file_get_contents($url);
 			if($file == FALSE) {
 				http_response_code(404);
-				header("Location: /errorpag/404.html");
+				header("Location: /errorpage/404.html");
 				exit;
 			} else {
 				echo $file;
@@ -30,19 +30,19 @@
 			$file = file_get_contents($url);
 			if($file == FALSE) {
 				http_response_code(404);
-				header("Location: /errorpag/404.html");
+				header("Location: /errorpage/404.html");
 				exit;
 			} else {
 			?>
 			<!DOCTYPE html>
 				<html>
 				<head>
-					<title></title>
+					<title>News - goethegym.net</title>
 					<meta charset="UTF-8">
 					<link href="../styles/styles.css" type="text/css" rel="stylesheet">
-					<!--<script src="scripts/main.js"></script>-->
+					<script src="../scripts/main.js"></script>
 				</head>
-				<body>
+				<body onload="initialize()">
 					<header>
 						<a href="../index.php"><h1>goethegym.net</h1></a>
 						<nav>
@@ -53,8 +53,15 @@
 							<a href="#" title="Kontakt und Impressum" class="material-icon">&#xE0D1;</a>
 							<a href="#" title="Downloads" class="material-icon">&#xE2C0;</a>
 						</nav>
-						<a class="login"></a>
+						<a class="login material-icon" onclick="showLogin(this);">&#xE853;</a>
 					</header>
+					<div id="login">
+						<a href="../media/files/vertretungsplan.pdf" target="_blank">Vertretungsplan</a><br>
+						<a href="../media/files/stundenplan.pdf" target="_blank">Stundenplan</a><br>
+						<a href="../media/files/monatsplan.pdf" target="_blank">Monatsplan</a><br>
+						<a href="../media/files/jahresplan.pdf" target="_blank">Jahresplan</a><br>
+						<a href="downloads/" style="float: right; font-size: 1.2em; margin-top: 0px;">mehr...</a><br>
+					</div>
 					<main class="subsite">
 						<article>
 							<?= $file ?>
@@ -111,6 +118,6 @@
 	}
 
 	http_response_code(404);
-	header("Location: /errorpag/404.html");
+	header("Location: /errorpage/404.html");
 	exit;
 ?>

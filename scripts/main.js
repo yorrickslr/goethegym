@@ -43,8 +43,7 @@ function initialize() {
 			article.style.width = 0.6 * body.clientWidth - 50 + "px";
 			console.log("Tempheight: " + tempheight);
 			article.style.minHeight = tempheight + "px";
-			bgimage.style.width = 0.2 * body.clientWidth + "px";
-			bgimage.style.height = body.clientHeight - 50 + "px";
+			bgimage.style.width = tempheight + "px";
 			if(shown) {
 				main.style.width = 0.2 * body.clientWidth + "px";
 				main.style.left = 0.8 * body.clientWidth + "px";
@@ -89,7 +88,7 @@ function initMain() {
 	bgimage = document.createElement("div");
 	bgimage.classList.add("js_bgimage");
 	bgimage.style.width = 0.2 * body.clientWidth + "px";
-	bgimage.style.height = body.clientHeight - 50 + "px";
+	bgimage.style.height = tempheight + "px";
 	body.appendChild(bgimage);
 
 	switch_shadow_left = document.createElement("div");
@@ -152,11 +151,8 @@ function loadArticle(event,path) {
 		for(i=0; i<switches.length; i++) {
 			switches[i].style.opacity = 0;
 		}
-		try {
+		if(!typeof(document.getElementById("infobox") === "undefined"))
 			document.getElementById("infobox").style.cursor = "pointer";
-		} finally {
-			log("no infos found");
-		}
 		scrollTo(0,0);
 		shown = 1;
 		var xhttp = new XMLHttpRequest();
@@ -192,11 +188,8 @@ function reset() {
 	main.style.cursor = "auto";
 	main.style.position = "absolute";
 	article.style.left = 0;
-	try {
-		document.getElementById("infobox").style.cursor = "auto";
-	} finally {
-		log("no infos found");
-	}
+	if(!typeof(document.getElementById("infobox") === "undefined"))
+			document.getElementById("infobox").style.cursor = "auto";
 	footer.style.top = main.offsetHeight + 50 + "px";
 	//scrollUp();
 	scrollTo(0,0);

@@ -1,13 +1,7 @@
-- Footer (content und absolute bottom)
 - Sitemap
-- mobile noch auf alte website verlinken
-- alte homepage -> mobile site umbauen
 - menübilder direkt laden ohne PHP
-- errorpages header
-- titles
-- add login to other menu items
-- delete nobreak class in subsite nav
 - link to datenschutzshizzle
+- shorten php scripts
 
 Inhaltliches:
 - Kürzel auf die Internetseite? -> Anonymisierung sinnlos

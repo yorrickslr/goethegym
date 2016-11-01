@@ -1,8 +1,25 @@
+<?php
+require_once 'temp/Mobile_Detect.php';
+$detect = new Mobile_Detect;
+
+if ( $detect->isMobile() && !isset($_GET["desktop"])) {
+	header("Location: http://m.goethegym.net");
+	exit;
+}
+
+if(isset($_GET["mobile"])) {
+	header("Location: http://m.goethegym.net");
+	exit;
+}
+
+?>
+
+
 <!DOCTYPE html>
 <!-- saved from url=(0023)http://goethegym.net/ -->
 <html>
 <head>
-	<title></title>
+	<title>goethegym.net</title>
 	<meta charset="UTF-8">
 	<link href="styles/styles.css" type="text/css" rel="stylesheet">
 	<script src="scripts/main.js"></script>
@@ -24,7 +41,7 @@
 		<a href="media/files/vertretungsplan.pdf" target="_blank">Vertretungsplan</a><br>
 		<a href="media/files/stundenplan.pdf" target="_blank">Stundenplan</a><br>
 		<a href="media/files/monatsplan.pdf" target="_blank">Monatsplan</a><br>
-		<a href="media/files/jahresplan.pdf" target="_blank">Jahresplan</a><br>
+		<a href="media/files/essenplan_aktuell.pdf" target="_blank">Essenplan</a><br>
 		<a href="downloads/" style="float: right; font-size: 1.2em; margin-top: 0px;">mehr...</a><br>
 	</div>
 	<main class="mainpage">
@@ -32,11 +49,9 @@
 		<div class="tilewrapper noselect">
 		<?php
 			if (!file_exists("temp/news/index.xml")) {
-			    ?>
-				<h2>Wow. Da ist ganz schön was schiefgelaufen.</h2>
-				<p>Die Website will wohl gerade nicht. Schau in ein paar Minuten nochmal vorbei.</p>
-				<?php 
-				exit();
+					http_response_code(500);
+					header("Location: /errorpag/500.html");
+					exit;
 			}
 			$articles = simplexml_load_file("temp/news/index.xml");
 			$count = rand(1,6);
@@ -60,8 +75,9 @@
 						$url = "temp/news/" . $article->path . "/teaser.txt";
 						$file = file_get_contents($url);
 						if($file == FALSE) {
-							echo "<h2>404 - file not found!</h2>";
-							echo "Da ist wohl was schief gelaufen =/";
+							http_response_code(404);
+							header("Location: /errorpag/404.html");
+							exit;
 						} else {
 							echo $file;
 						}

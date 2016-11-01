@@ -411,6 +411,12 @@ footer .wrapper a:hover {
 	margin: 10px;
 }
 
+.js_article a {
+	color: #6aa70a;
+	text-decoration: underline;
+	text-decoration-style: dotted;
+}
+
 .js_bgimage {
 	position: fixed;
 	top: 50px;

@@ -2,21 +2,21 @@
 	//error_reporting(0);
 	if(!isset($_GET["path"])) {
 		http_response_code(500);
-		header("Location: /errorpag/500.html");
+		header("Location: /errorpage/500.html");
 		exit;
 	}
 
 	$path = pathinfo($_GET["path"]);
 	if(!isset($path["extension"])) {
 		http_response_code(500);
-		header("Location: /errorpag/500.html");
+		header("Location: /errorpage/500.html");
 		exit;
 	}
 	?>
 	<!DOCTYPE html>
 		<html>
 		<head>
-			<title></title>
+			<title>Informationen - goethegym.net</title>
 			<meta charset="UTF-8">
 			<link href="../styles/styles.css" type="text/css" rel="stylesheet">
 			<script src="../scripts/main.js"></script>
@@ -50,7 +50,7 @@
 					<nav>
 					<?php
 						foreach($articles->article as $article) {
-							echo '<span class="nobreak"><a href="#' . $article->path . '">' . $article->title . "</a></span>";
+							echo '<span><a href="#' . $article->path . '">' . $article->title . "</a></span>";
 						}
 						echo "</nav>\n<article>";
 						foreach($articles->article as $article) {
@@ -58,7 +58,7 @@
 							$file = file_get_contents($url);
 							if($file == FALSE) {
 								http_response_code(404);
-								header("Location: /errorpag/404.html");
+								header("Location: /errorpage/404.html");
 								exit;
 							} else {
 								echo '<a class="anchor" name="' . $article->path . '"></a><h3>' . $article->title . '</h3>';
@@ -112,7 +112,7 @@
 		$file = file_get_contents($url);
 		if($file == FALSE) {
 			http_response_code(404);
-			header("Location: /errorpag/404.html");
+			header("Location: /errorpage/404.html");
 			exit;
 		} else {
 			?>
@@ -160,6 +160,6 @@
 	}
 
 	http_response_code(404);
-	header("Location: /errorpag/404.html");
+	header("Location: /errorpage/404.html");
 	exit;
 ?>
