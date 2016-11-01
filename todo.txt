@@ -1,14 +1,13 @@
 - Footer (content und absolute bottom)
 - Sitemap
-- javascript -> css classes
-- resize handling in js
 - mobile noch auf alte website verlinken
-- article schriftgröße
-- margin on img in article
 - alte homepage -> mobile site umbauen
 - menübilder direkt laden ohne PHP
 - errorpages header
 - titles
+- add login to other menu items
+- delete nobreak class in subsite nav
+- link to datenschutzshizzle
 
 Inhaltliches:
 - Kürzel auf die Internetseite? -> Anonymisierung sinnlos

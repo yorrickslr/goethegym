@@ -28,10 +28,30 @@ function initialize() {
 		login = document.getElementById("login");
 		loginbutton = document.getElementsByClassName("login")[0];
 		window.addEventListener("resize", function() {
-			if(shown) {
-				log("resize with displayed article");
+			main.style.width = body.clientWidth + "px";
+			tempheight = 0;
+			if(body.clientHeight > 750)
+				tempheight = body.clientHeight - 50;		
+			else
+				tempheight = 800;
+			main.style.height = tempheight + "px";
+			if(tempheight + 50 < body.clientHeight) {
+				footer.style.top = body.clientHeight + "px";
 			} else {
-				log("resize with displayed main");
+				footer.style.top = (tempheight + 50) + "px";
+			}
+			article.style.width = 0.6 * body.clientWidth - 50 + "px";
+			console.log("Tempheight: " + tempheight);
+			article.style.minHeight = tempheight + "px";
+			bgimage.style.width = 0.2 * body.clientWidth + "px";
+			bgimage.style.height = body.clientHeight - 50 + "px";
+			if(shown) {
+				main.style.width = 0.2 * body.clientWidth + "px";
+				main.style.left = 0.8 * body.clientWidth + "px";
+				window.setTimeout(function() {
+					footer.style.top = article.offsetHeight + "px";
+				}, 500);
+				article.style.left = 0.2 * body.clientWidth + "px";
 			}
 		});
 	}
@@ -40,69 +60,50 @@ function initialize() {
 function initMain() {
 	tiles = document.getElementsByClassName("tilewrapper")[0];
 	log("initMain()");
-	main.style.padding = "0";
-	main.style.top = "50px";
-	main.style.position = "absolute";
+
+	main.classList.add("js_main");
 	main.style.width = body.clientWidth + "px";
-	window.addEventListener("resize",function(){
-		main.style.width = body.clientWidth + "px";
-	});
-	if(body.clientHeight - 50 > main.offsetHeight)
-		main.style.height = body.clientHeight - 50 + "px";
+	tempheight = 0;
+	if(body.clientHeight > 750)
+		tempheight = body.clientHeight - 50;		
 	else
-		main.style.height = tiles.offsetHeight + tiles.offsetTop + "px";
-	main.style.overflow = "hidden";
-	main.style.transitionDuration = ".5s";
-	main.style.left = 0;
-	tiles.style.position = "absolute";
-	tiles.style.top = tiles.offsetTop + "px";
-	tiles.style.left = 0;
-	tiles.style.overflow = "hidden";
-	tiles.style.transitionDuration = ".5s";
-	tiles.style.left = "50px";
-	footer.style.position = "absolute";
-	if(footer.offsetTop<body.clientHeight)
-	footer.style.top = main.offsetHeight + 50 + "px";
-	footer.style.zIndex = 5;
-	footer.style.transitionDuration = ".5s";
+		tempheight = 800;
+	main.style.height = tempheight + "px";
+	main.classList.add("js_main_additional");
+
+	tiles.classList.add("js_tiles");
+
+	footer.classList.add("js_footer");
+	if(tempheight + 50 < body.clientHeight) {
+		footer.style.top = body.clientHeight + "px";
+	} else {
+		footer.style.top = (tempheight + 50) + "px";
+	}
+
 	article = document.createElement("article");
-	article.style.position = "absolute";
-	article.style.top = "50px";
-	article.style.left = 0;
+	article.classList.add("js_article");
 	article.style.width = 0.6 * body.clientWidth - 50 + "px";
-	article.style.minHeight = main.offsetHeight + "px";
-	article.style.boxShadow = "0 0 10px #555";
-	article.style.backgroundColor = "#fff";
-	article.style.transitionDuration = ".5s";
-	article.style.padding = "0 25px 100px 25px";
-	article.style.zIndex = 3;
-	article.style.textAlign = "justify";
-	article.style.fontSize = "1.1em";
+	article.style.minHeight = tempheight + "px";
 	body.appendChild(article);
+
 	bgimage = document.createElement("div");
-	bgimage.style.position = "fixed";
-	bgimage.style.top = "50px";
-	bgimage.style.left = 0;
+	bgimage.classList.add("js_bgimage");
 	bgimage.style.width = 0.2 * body.clientWidth + "px";
 	bgimage.style.height = body.clientHeight - 50 + "px";
-	bgimage.style.zIndex = 0;
-	bgimage.backgroundColor = "pink";
-	bgimage.style.backgroundImage = "url(images/fill_pattern.png)";
-	bgimage.style.backgroundSize = "75%";
-	bgimage.style.backgroundPosition = "center";
 	body.appendChild(bgimage);
+
 	switch_shadow_left = document.createElement("div");
-	switch_shadow_left.className = "switchshadow";
+	switch_shadow_left.className = "js_switchshadow";
 	switch_shadow_left.style.left = "25px";
 	main.appendChild(switch_shadow_left);
 	switch_shadow_right = document.createElement("div");
-	switch_shadow_right.className = "switchshadow";
+	switch_shadow_right.className = "js_switchshadow";
 	switch_shadow_right.style.right = "25px";
 	main.appendChild(switch_shadow_right);
 	switch_left = document.createElement("div");
 	switch_right = document.createElement("div");
-	switch_left.className = "switch switch_left";
-	switch_right.className = "switch switch_right";
+	switch_left.className = "js_switch js_switch_left";
+	switch_right.className = "js_switch js_switch_right";
 	switch_left.onclick = function(){scrollTiles(-2)};
 	switch_right.onclick = function(){scrollTiles(2)};
 	main.appendChild(switch_left);

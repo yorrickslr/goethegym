@@ -1,8 +1,8 @@
 <?xml version="1.0" standalone="yes"?>
 <articles>
 	<article>
-		<title>Kontakt</title>
-		<path>kontakt</path>
+		<title>Anschrift</title>
+		<path>anschrift</path>
 	</article>
 	<article>
 		<title>Impressum</title>
